@@ -1,6 +1,6 @@
 [build]
   base = "client"
-  command = "npm run build"
+  command = "npm ci && node node_modules/react-scripts/scripts/build.js"
   publish = "build"
 
 [build.environment]
