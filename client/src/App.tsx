@@ -9,6 +9,7 @@ import Transfers from './pages/Transfers';
 import Tactics from './pages/Tactics';
 import Fixtures from './pages/Fixtures';
 import LeagueTable from './pages/LeagueTable';
+import Auth from './pages/Auth';
 
 const App: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const App: React.FC = () => {
       <main style={{ padding: 20 }}>
         <Routes>
           <Route path="/" element={<ManagerDashboard />} />
+          <Route path="/auth" element={<Auth />} />
           <Route path="/teams" element={<Teams />} />
           <Route path="/teams/:id" element={<TeamDetail />} />
           <Route path="/player/:id" element={<PlayerDetail />} />

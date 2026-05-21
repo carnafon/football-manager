@@ -1,10 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class Player {
-    constructor(id, name, position) {
+    constructor(id, name, position, stats) {
         this.id = id;
         this.name = name;
         this.position = position;
+        this.stats = stats !== null && stats !== void 0 ? stats : { goals: 0, assists: 0, appearances: 0 };
     }
     calculateStats() {
         // Logic to calculate player statistics
@@ -15,16 +16,12 @@ class Player {
         };
     }
     updateStats(newStats) {
-        // Logic to update player statistics
-        if (newStats.goals !== undefined) {
-            // Update goals
-        }
-        if (newStats.assists !== undefined) {
-            // Update assists
-        }
-        if (newStats.appearances !== undefined) {
-            // Update appearances
-        }
+        if (newStats.goals !== undefined)
+            this.stats.goals = newStats.goals;
+        if (newStats.assists !== undefined)
+            this.stats.assists = newStats.assists;
+        if (newStats.appearances !== undefined)
+            this.stats.appearances = newStats.appearances;
     }
 }
 exports.default = Player;

@@ -5,12 +5,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const teamController_1 = __importDefault(require("../controllers/teamController"));
+const auth_1 = __importDefault(require("./auth"));
+const auth_2 = __importDefault(require("../middleware/auth"));
 const router = (0, express_1.Router)();
 const teamController = new teamController_1.default();
+// Protect /teams routes with auth middleware
+router.use('/teams', auth_2.default);
 router.post('/teams', teamController.createTeam.bind(teamController));
 router.get('/teams/:id', teamController.getTeam.bind(teamController));
 router.put('/teams/:id', teamController.updateTeam.bind(teamController));
 function setRoutes(app) {
+    // auth routes mounted separately
+    app.use('/api/auth', auth_1.default);
     app.use('/api', router);
 }
 exports.default = setRoutes;
