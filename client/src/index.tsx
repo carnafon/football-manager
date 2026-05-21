@@ -1,14 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/main.css';
-import ManagerDashboard from './pages/ManagerDashboard';
-
-const App = () => {
-    return (
-        <div>
-            <ManagerDashboard />
-        </div>
-    );
-};
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 
 ReactDOM.render(<App />, document.getElementById('root'));
