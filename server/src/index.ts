@@ -1,6 +1,6 @@
 import express from 'express';
 import { json } from 'body-parser';
-import { setRoutes } from './routes/api';
+import setRoutes from './routes/api';
 
 const app = express();
 const PORT = process.env.PORT || 3000;

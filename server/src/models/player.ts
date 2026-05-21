@@ -2,14 +2,16 @@ class Player {
     id: number;
     name: string;
     position: string;
+    stats: { goals: number; assists: number; appearances: number };
 
-    constructor(id: number, name: string, position: string) {
+    constructor(id: number, name: string, position: string, stats?: { goals: number; assists: number; appearances: number }) {
         this.id = id;
         this.name = name;
         this.position = position;
+        this.stats = stats ?? { goals: 0, assists: 0, appearances: 0 };
     }
 
-    calculateStats(): object {
+    calculateStats(): { goals: number; assists: number; appearances: number } {
         // Logic to calculate player statistics
         return {
             goals: Math.floor(Math.random() * 10),
@@ -19,16 +21,9 @@ class Player {
     }
 
     updateStats(newStats: { goals?: number; assists?: number; appearances?: number }): void {
-        // Logic to update player statistics
-        if (newStats.goals !== undefined) {
-            // Update goals
-        }
-        if (newStats.assists !== undefined) {
-            // Update assists
-        }
-        if (newStats.appearances !== undefined) {
-            // Update appearances
-        }
+        if (newStats.goals !== undefined) this.stats.goals = newStats.goals;
+        if (newStats.assists !== undefined) this.stats.assists = newStats.assists;
+        if (newStats.appearances !== undefined) this.stats.appearances = newStats.appearances;
     }
 }
 

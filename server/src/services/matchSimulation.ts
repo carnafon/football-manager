@@ -1,4 +1,4 @@
-import { Team } from '../../shared/src/types';
+import { Team } from '../../../shared/src/types';
 
 export function simulateMatch(teamA: Team, teamB: Team): string {
     const teamAScore = Math.floor(Math.random() * 5); // Simulate score for team A

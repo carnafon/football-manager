@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import { Router, Express } from 'express';
 import TeamController from '../controllers/teamController';
 
 const router = Router();
@@ -8,6 +8,6 @@ router.post('/teams', teamController.createTeam.bind(teamController));
 router.get('/teams/:id', teamController.getTeam.bind(teamController));
 router.put('/teams/:id', teamController.updateTeam.bind(teamController));
 
-export default function setRoutes(app) {
+export default function setRoutes(app: Express) {
     app.use('/api', router);
 }

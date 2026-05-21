@@ -1,0 +1,33 @@
+name: Playwright E2E
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '16'
+      - name: Install client deps
+        run: |
+          cd client
+          npm ci
+      - name: Install Playwright browsers
+        run: |
+          cd client
+          npx playwright install --with-deps
+      - name: Start client
+        run: |
+          cd client
+          npm start &
+          sleep 15
+      - name: Run Playwright tests
+        run: |
+          cd client
+          npx playwright test --reporter=list
